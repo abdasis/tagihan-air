@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../widgets.html" class="nav-link">
+                        <a href="{{ route('pengguna.index') }}" class="nav-link">
                             <i class="nav-icon fa fa-users"></i>
                             <p>
                                 Data Pengguna
@@ -45,7 +45,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../widgets.html" class="nav-link">
+                        <a href="{{ route('penggunaan.index') }}" class="nav-link">
                             <i class="nav-icon fa fa-file-invoice text-success"></i>
                             <p>
                                 Data Tagihan

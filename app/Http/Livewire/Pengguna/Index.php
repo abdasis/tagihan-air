@@ -64,6 +64,7 @@ class Index extends Component
     public function catatPengeluaran($id)
     {
         $this->createPengeluaran = true;
+        $this->statusUpdate = false;
         $this->emit('penggunaId', $id);
         $this->emit('modalPengeluaran');
     }

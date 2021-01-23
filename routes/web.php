@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Pengaturan\Harga;
+use App\Http\Livewire\Pengeluaran\Index as PengeluaranIndex;
 use App\Http\Livewire\Pengguna\Index;
 use App\Http\Livewire\Pengguna\Show;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +26,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('semua-pengguna', Index::class)->name('pengguna.index');
         Route::get('detail-pengguna/{id}', Show::class)->name('pengguna.show');
     });
+    Route::group(['prefix' => 'penggunaan'], function () {
+        Route::get('semua-data', PengeluaranIndex::class)->name('penggunaan.index');
+    });
+    Route::get('atur-harga', Harga::class)->name('pengaturan.harga');
 });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
