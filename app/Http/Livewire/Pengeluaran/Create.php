@@ -59,9 +59,9 @@ class Create extends Component
         $penggunaan->pemakaian_kubik = $pemakaianKubik;
         $penggunaan->biaya_admin = $setHarga->biaya_admin;
         $penggunaan->biaya_perawatan = $setHarga->biaya_perawatan;
-        $penggunaan->harga_kubik = $setHarga->harga_kubik;
+        $penggunaan->harga_kubik = $setHarga->harga_perkubik;
         $penggunaan->diskon = $this->diskon;
-        $penggunaan->tagihan = ($pemakaian * $setHarga->biaya_perkubik) + $setHarga->biaya_admin + $setHarga->biaya_perawatan - $this->diskon;
+        $penggunaan->tagihan = ($pemakaianKubik * $setHarga->harga_perkubik) + $setHarga->biaya_admin + $setHarga->biaya_perawatan - $this->diskon;
         $penggunaan->pengguna = $pengguna->id;
         $penggunaan->save();
         $this->reset(['akhir_meter', 'diskon']);

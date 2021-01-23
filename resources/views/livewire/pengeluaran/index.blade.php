@@ -60,10 +60,12 @@
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $penggunaan->dataPengguna->nomor_meter }}</td>
                                         <td>{{ $penggunaan->dataPengguna->nama}}</td>
-                                        <td>{{ $penggunaan->awal_meter}}</td>
-                                        <td>{{ $penggunaan->akhir_meter}}</td>
-                                        <td>{{ $penggunaan->pemakaian_liter}}</td>
-                                        <td>{{ number_format($penggunaan->pemakaian_kubik,0,'.','.')}}</td>
+                                        <td>{{ number_format($penggunaan->awal_meter,0,'.','.')}}</td>
+                                        <td>{{ number_format($penggunaan->akhir_meter,0,'.','.')}}</td>
+                                        <td>{{ number_format($penggunaan->pemakaian_liter,0,'.','.')}}</td>
+                                        <td>{{ number_format($penggunaan->pemakaian_kubik,0,'.','.')}} m<sup>3</sup>
+                                        </td>
+                                        <td>Rp. {{ number_format($penggunaan->tagihan, 2 , ',','.') }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

@@ -32,6 +32,8 @@ class Harga extends Component
     }
     public function render()
     {
-        return view('livewire.pengaturan.harga');
+        return view('livewire.pengaturan.harga', [
+            'harga' => ModelsHarga::latest()->first()
+        ]);
     }
 }
