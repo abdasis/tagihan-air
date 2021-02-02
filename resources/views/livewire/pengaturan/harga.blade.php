@@ -30,23 +30,40 @@
                                 <div class="form-group">
                                     <label for="">Biaya Admin</label>
                                     <input type="number" wire:model='biaya_admin' class="form-control"
-                                        placeholder="1.000">
+                                        placeholder="1000">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Biaya Perawatan</label>
                                     <input type="number" wire:model='biaya_perawatan' class="form-control"
-                                        placeholder="1.000">
+                                        placeholder="1000">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Harga M<sup>3</sup></label>
                                     <input type="number" wire:model='harga_perkubik' class="form-control"
-                                        placeholder="1.000">
+                                        placeholder="1000">
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-danger"><i class="fa fa-save mr-1"></i>Simpan Data</button>
                                 </div>
                             </form>
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card card-outline card-success">
+                        <div class="card-header">
+                            <h5>Biaya Terbaru</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><b>Biaya Admin:</b> Rp. {{ number_format($harga->biaya_admin ?? 0, 2 ,',', '.') }}</p>
+                            <p><b>Biaya Perawatan:</b> Rp. {{ number_format($harga->biaya_perawatan ?? 0, 2,',','.') }}
+                            </p>
+                            <p><b>Harga Perkubik:</b> Rp. {{ number_format($harga->harga_perkubik ?? 0, 2, ',', '.') }}
+                            </p>
+                            <div class="text-success">Terakhir diperbarui pada
+                                <b>{{ Carbon\Carbon::parse($harga->created_at ?? 0)->format('d-M-Y') }}</b> </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
