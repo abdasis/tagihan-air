@@ -64,6 +64,13 @@
                                         <td>{{ $penggunaan->akhir_meter}}</td>
                                         <td>{{ $penggunaan->pemakaian_liter}}</td>
                                         <td>{{ number_format($penggunaan->pemakaian_kubik,0,'.','.')}}</td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <button class="btn btn-warning btn-sm"
+                                                    wire:click='update({{ $penggunaan->id }})'><i
+                                                        class="fa fa-edit"></i></button>
+                                            </div>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -74,6 +81,24 @@
             </div>
         </div>
     </section>
+
+    <div class="modal fade" id="modalPengeluaran" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header p-3">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @livewire('pengeluaran.update')
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 @push('js')
 <script>
@@ -90,6 +115,11 @@
     Livewire.on('modalPengeluaran', function(){
         $('#modalPengguna').modal('show')
         $('.modal-title').text('Tambah Penggunaan');
+    })
+
+    Livewire.on('modalEdit', function(){
+        $('#modalPengeluaran').modal('show')
+        $('.modal-title').text('Edit Pengeluaran');
     })
 </script>
 @endpush

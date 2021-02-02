@@ -1,5 +1,5 @@
 <div>
-    <aside class="main-sidebar sidebar-dark-primary elevation-1 ">
+    <aside class="main-sidebar sidebar-light-white elevation-1 ">
         <!-- Brand Logo -->
         <a href="{{ route('dashboard') }}" class="brand-link">
             <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle"
