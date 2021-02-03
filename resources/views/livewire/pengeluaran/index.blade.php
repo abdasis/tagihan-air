@@ -48,8 +48,7 @@
                                         <th>Nomor Meter</th>
                                         <th>Nama</th>
                                         <th>Awal Meter</th>
-                                        <th>AkhirMeter</th>
-                                        <th>Pengguna L</th>
+                                        <th>Akhir Meter</th>
                                         <th>Penggunaan M<sup>3</sup></th>
                                         <th>Option</th>
                                     </tr>
@@ -62,7 +61,6 @@
                                         <td>{{ $penggunaan->dataPengguna->nama}}</td>
                                         <td>{{ number_format($penggunaan->awal_meter,0,'.','.')}}</td>
                                         <td>{{ number_format($penggunaan->akhir_meter,0,'.','.')}}</td>
-                                        <td>{{ number_format($penggunaan->pemakaian_liter,0,'.','.')}}</td>
                                         <td>{{ number_format($penggunaan->pemakaian_kubik,0,'.','.')}} m<sup>3</sup>
                                         </td>
                                         <td>Rp. {{ number_format($penggunaan->tagihan, 2 , ',','.') }}</td>
