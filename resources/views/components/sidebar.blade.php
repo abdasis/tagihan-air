@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('inventaris.index') }}" class="nav-link">
                             <i class="nav-icon fa fa-cash-register text-danger"></i>
                             <p>Pengeluaran</p>
                         </a>

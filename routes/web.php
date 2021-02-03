@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Inventaris\Create;
+use App\Http\Livewire\Inventaris\Index as InventarisIndex;
 use App\Http\Livewire\Pengaturan\Harga;
 use App\Http\Livewire\Pengeluaran\Index as PengeluaranIndex;
 use App\Http\Livewire\Pengguna\Index;
@@ -28,6 +30,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     });
     Route::group(['prefix' => 'penggunaan'], function () {
         Route::get('semua-data', PengeluaranIndex::class)->name('penggunaan.index');
+    });
+    Route::group(['prefix' => 'invataris'], function () {
+        Route::get('semua-pengeluaran', InventarisIndex::class)->name('inventaris.index');
     });
     Route::get('atur-harga', Harga::class)->name('pengaturan.harga');
 });
