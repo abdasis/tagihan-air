@@ -35,6 +35,15 @@ class Create extends Component
         $meterAwal = Penggunaan::where('pengguna', $this->pengguna_id)->latest()->first();
         $penggunaan = Penggunaan::wherePengguna($pengguna->id)->whereMonth('created_at', date('m'))->latest()->get();
 
+        if ($meterAwal->akhir_meter < $meterAwal->awal_meter) {
+            $this->alert('error', 'Maaf!', [
+                'text' => 'Meter akhir tidak boleh lebih kecil dari meter awal',
+                'toast' => false,
+                'position' => 'center'
+            ]);
+            return;
+        }
+
         if (empty($meterAwal)) {
             $meterAwal = 0;
         } else {
@@ -50,6 +59,7 @@ class Create extends Component
             ]);
             return;
         }
+
         $pemakaian = ($this->akhir_meter - $meterAwal);
         $pemakaianKubik = $pemakaian / 1000;
         $penggunaan = new Penggunaan();

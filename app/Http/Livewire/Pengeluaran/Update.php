@@ -31,6 +31,7 @@ class Update extends Component
 
     public function update()
     {
+        // dd($this->penggunan_id->pengguna);
         $setHarga = Harga::latest()->first();
         $meterAwal = Penggunaan::where('pengguna', $this->penggunan_id->pengguna)->latest()->first();
         if (empty($meterAwal)) {
@@ -40,7 +41,7 @@ class Update extends Component
         }
         $pemakaian = ($this->akhir_meter - $meterAwal);
         $pemakaianKubik = $pemakaian / 1000;
-        $penggunaan = Penggunaan::find($this->penggunan_id);
+        $penggunaan = Penggunaan::find($this->penggunan_id->id);
         $penggunaan->awal_meter = $meterAwal;
         $penggunaan->akhir_meter = $this->akhir_meter;
         $penggunaan->pemakaian_liter = $pemakaian;
@@ -50,11 +51,11 @@ class Update extends Component
         $penggunaan->harga_kubik = $setHarga->harga_kubik;
         $penggunaan->diskon = $this->diskon;
         $penggunaan->tagihan = ($pemakaian * $setHarga->biaya_perkubik) + $setHarga->biaya_admin + $setHarga->biaya_perawatan - $this->diskon;
-        $penggunaan->pengguna = $meterAwal->pengguna;
+        $penggunaan->pengguna = $this->penggunan_id->pengguna;
         $penggunaan->save();
         $this->reset(['akhir_meter', 'diskon']);
-        $this->alert('success', 'Data Berhasil Disimpan');
-        session()->flash('message', 'Data berhasil disimpan');
+        $this->alert('success', 'Data Berhasil update');
+        session()->flash('message', 'Data berhasil update');
     }
 
 
