@@ -8,6 +8,11 @@ use Livewire\Component;
 
 class Index extends Component
 {
+    public function update($id)
+    {
+        $this->emit('modalEdit');
+        $this->emit('pengguna_id', $id);
+    }
     public function render()
     {
         $penggunaan = Penggunaan::latest()->get();

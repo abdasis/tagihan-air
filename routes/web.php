@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('pengguna.index');
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'pengguna'], function () {
         Route::get('semua-pengguna', Index::class)->name('pengguna.index');
         Route::get('detail-pengguna/{id}', Show::class)->name('pengguna.show');
