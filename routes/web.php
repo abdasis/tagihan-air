@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InventarisController;
 use App\Http\Livewire\Inventaris\Create;
 use App\Http\Livewire\Inventaris\Index as InventarisIndex;
 use App\Http\Livewire\Pengaturan\Harga;
@@ -35,6 +36,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('semua-pengeluaran', InventarisIndex::class)->name('inventaris.index');
     });
     Route::get('atur-harga', Harga::class)->name('pengaturan.harga');
+
+    Route::get('export-invoice/{id}', [InventarisController::class, 'print'])->name('print.invoice');
 });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

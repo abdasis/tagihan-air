@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Harga;
 use App\Models\Inventaris;
+use App\Models\Penggunaan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class InventarisController extends Controller
 {
@@ -81,5 +85,31 @@ class InventarisController extends Controller
     public function destroy(Inventaris $inventaris)
     {
         //
+    }
+
+    public function print($id)
+    {
+
+        $penggunaan = Penggunaan::find($id);
+        $harga = Harga::latest()->first();
+        $data = [
+            'id' => $penggunaan->id,
+            'tanggal' => $penggunaan->created_at,
+            'sumber_dana' => $penggunaan->dataPengguna->nama,
+            'no_meter' => $penggunaan->dataPengguna->nomor_meter,
+            'alamat' => $penggunaan->dataPengguna->alamat,
+            'meter_awal' => $penggunaan->awal_meter,
+            'meter_akhir' => $penggunaan->akhir_meter,
+            'jumlah_pemakaian' => $penggunaan->pemakaian_kubik,
+            'biaya_perawatan' => $harga->biaya_perawatan,
+            'biaya_admin' => $harga->biaya_admin,
+            'diskon' => $penggunaan->diskon,
+            'tagihan' => $penggunaan->tagihan,
+            'harga_perkubik' => $harga->harga_perkubik,
+            'diskon' => $penggunaan->diskon,
+            'total' => $penggunaan->tagihan
+        ];
+        $pdf = PDF::loadView('pdf.invoice', $data);
+        return $pdf->stream();
     }
 }

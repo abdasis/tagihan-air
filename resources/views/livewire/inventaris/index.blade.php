@@ -88,8 +88,8 @@
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $pengeluaran->nama_barang}}</td>
                                         <td>{{ $pengeluaran->jumlah}}</td>
-                                        <td>{{ $pengeluaran->harga_satuan}}</td>
-                                        <td>{{ $pengeluaran->jumlah_total }}</td>
+                                        <td>Rp. {{ number_format($pengeluaran->harga_satuan,2,'.',',') }}</td>
+                                        <td>Rp. {{ number_format($pengeluaran->jumlah_total,2,'.',',') }}</td>
                                         <td class="text-center">
                                             <i class="fa fa-edit text-warning cursor-pointer"
                                                 wire:click='update({{ $pengeluaran->id }})'></i>

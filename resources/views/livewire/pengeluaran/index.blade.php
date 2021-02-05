@@ -49,6 +49,7 @@
                                         <th>Nama</th>
                                         <th>Awal Meter</th>
                                         <th>Akhir Meter</th>
+                                        <th>Pemakaian Liter</th>
                                         <th>Penggunaan M<sup>3</sup></th>
                                         <th>Option</th>
                                     </tr>
@@ -69,6 +70,10 @@
                                                     wire:click='update({{ $penggunaan->id }})'><i
                                                         class="fa fa-edit"></i></button>
                                             </div>
+                                            <a href="{{ route('print.invoice', $penggunaan->id) }}">
+                                                <button class="btn btn-danger btn-sm"><i
+                                                        class="fa fa-file-pdf"></i></button>
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
