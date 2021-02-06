@@ -58,6 +58,13 @@
                             <p>Pengeluaran</p>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('pengaturan.harga') }}" class="nav-link">
+                            <i class="nav-icon fa fa-money-bill"></i>
+                            <p>Pengaturan Harga</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
