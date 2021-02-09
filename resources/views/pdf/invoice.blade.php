@@ -11,7 +11,8 @@
             font-size: 10px;
         }
         td{
-            font-size: 8px;
+            font-size: 6px;
+            line-height: 6px;
         }
         table{
             width: 100%;
@@ -27,6 +28,10 @@
             text-align: center;
         }
 
+        p.text-center{
+            font-size: 6px;
+        }
+
         .text-right{
             text-align: right !important;
         }
@@ -36,7 +41,7 @@
 <body>
 <div class="row justify-content-center">
     <div class="col-md-4 shadow-sm">
-        <p class="text-center">PMB AIR BERSIH</p>
+        <h6 class="text-center">PMB AIR BERSIH</h6>
         <p class="text-center">Tagihan : {{ date('d-F-Y') }}</p>
     </div>
 </div>
