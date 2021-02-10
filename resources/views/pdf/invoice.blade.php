@@ -47,6 +47,7 @@
     <div class="row justify-content-center">
         <div class="col-md-4 shadow-sm">
             <h6 class="text-center">PMB AIR BERSIH</h6>
+            <p class="text-center">JL. BATU KENNONG DS. GEGER TELP. 0877-7776-7778 / 0822-3106-8160</p>
             <p class="text-center">Tagihan : {{ date('d-F-Y') }}</p>
         </div>
     </div>
@@ -113,6 +114,11 @@
             <td>Total</td>
             <td>:</td>
             <td class="text-right">Rp. {{ number_format($total,2,',','.') }}</td>
+        </tr>
+        <tr>
+            <td>Terbilang</td>
+            <td>:</td>
+            <td class="text-right">{{Str::title(terbilang($total))}}</td>
         </tr>
     </table>
     <div class="border"></div>
