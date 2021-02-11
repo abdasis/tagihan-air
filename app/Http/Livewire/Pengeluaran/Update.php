@@ -42,7 +42,7 @@ class Update extends Component
         $pemakaian = ($this->akhir_meter - $meterAwal);
         $pemakaianKubik = $pemakaian / 1000;
         $penggunaan = Penggunaan::find($this->penggunan_id->id);
-        $penggunaan->awal_meter = $meterAwal;
+        $penggunaan->awal_meter = $penggunaan->awal_meter;
         $penggunaan->akhir_meter = $this->akhir_meter;
         $penggunaan->pemakaian_liter = $pemakaian;
         $penggunaan->pemakaian_kubik = $pemakaianKubik;
