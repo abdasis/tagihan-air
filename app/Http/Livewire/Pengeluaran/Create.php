@@ -32,7 +32,7 @@ class Create extends Component
     {
         $pengguna = Pengguna::find($this->pengguna_id);
         $setHarga = Harga::latest()->first();
-        $meterAwal = Penggunaan::where('pengguna', $this->pengguna_id)->latest()->first();
+        $meterAwal = Penggunaan::where('pengguna', $pengguna->id)->latest()->first();
         $penggunaan = Penggunaan::wherePengguna($pengguna->id)->whereMonth('created_at', date('m'))->latest()->get();
 
         if ($meterAwal->akhir_meter < $meterAwal->awal_meter) {
